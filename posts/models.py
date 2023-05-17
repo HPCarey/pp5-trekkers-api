@@ -10,6 +10,15 @@ class Post(models.Model):
     This model is adapted from the Ci moments walkthrough model
     but contains some custom fields
     """
+    image_filter_choices = [
+        ('_1977', '1977'), ('brannan', 'Brannan'),
+        ('earlybird', 'Earlybird'), ('hudson', 'Hudson'),
+        ('inkwell', 'Inkwell'), ('lofi', 'Lo-Fi'),
+        ('kelvin', 'Kelvin'), ('normal', 'Normal'),
+        ('nashville', 'Nashville'), ('rise', 'Rise'),
+        ('toaster', 'Toaster'), ('valencia', 'Valencia'),
+        ('walden', 'Walden'), ('xpro2', 'X-pro II')
+    ]
 
     DIFFICULTY_CHOICES = [
         ('EA', 'Easy'),
@@ -27,11 +36,13 @@ class Post(models.Model):
     difficulty = models.CharField(
         max_length=300,
         choices=DIFFICULTY_CHOICES,
-        default=none
     )
     rating = models.IntegerField()
     image = models.ImageField(
         upload_to='images/', default='../default_post_cgvnmr', blank=True
+    )
+    image_filter = models.CharField(
+        max_length=32, choices=image_filter_choices, default='normal'
     )
 
     class Meta:
