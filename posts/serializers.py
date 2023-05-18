@@ -3,6 +3,9 @@ from posts.models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Post model
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
@@ -10,7 +13,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     def validate_image(self, value):
         """
-        Validation checks for size, width and height on post images
+        Validation check for size, width and height on post images
         """
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError(
