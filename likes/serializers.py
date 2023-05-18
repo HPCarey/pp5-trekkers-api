@@ -17,7 +17,7 @@ class LikeSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """
         Allows user to create a like
-        Returns a complete pbject instance if data is valid
+        Returns a complete object instance if data is valid
         Handles duplicate likes.
         Throws interity error if user already likes a post
         """
