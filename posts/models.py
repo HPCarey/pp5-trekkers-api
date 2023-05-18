@@ -22,10 +22,10 @@ class Post(models.Model):
     ]
 
     DIFFICULTY_CHOICES = [
-        ('EA', 'Easy'),
-        ('MO', 'Moderate'),
-        ('CH', 'Challenging'),
-        ('DI', 'Difficult'),
+        ('Easy', 'Easy'),
+        ('Moderate', 'Moderate'),
+        ('Challenging', 'Challenging'),
+        ('Difficult', 'Difficult'),
     ]
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -52,4 +52,4 @@ class Post(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return f'{self.event_title} {self.date}'
+        return f'{self.id} {self.title}'
