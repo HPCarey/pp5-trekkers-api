@@ -37,7 +37,7 @@ class Post(models.Model):
     difficulty = models.CharField(
         max_length=300,
         choices=DIFFICULTY_CHOICES,
-        default="Easy"
+        default=DIFFICULTY_CHOICES.Easy
     )
     rating = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(1), MaxValueValidator(5)]
