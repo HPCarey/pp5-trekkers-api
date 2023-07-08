@@ -15,7 +15,7 @@ This is the backend api for the trekkers Frontemd React app. It contains the mod
 ![Screenshot of project board](/readme/kanban-board.png)
 
 #### **Github Issues**
-Here is a [link](https://github.com/HPCarey/trekkers/issues)  to the project issues and labels. 
+Here is a [link](https://github.com/HPCarey/trekkers/issues?q=is%3Aissue+is%3Aclosed)  to the project issues and labels. 
 * A list of Frontend Bugs can be viewed via the Frontend Bug label. 
 * A list of backend bugs can be viewed via the Backend bug label.
 * A list of all bugs can be viewed via the bugs label.
@@ -28,6 +28,52 @@ Here is a [link](https://github.com/HPCarey/trekkers/issues)  to the project iss
 
 ![Database](/readme/trekkers_erd.jpeg)
 
+#### **API Endpoints**
+
+```
+dj-rest-auth/logout/
+dj-rest-auth/
+dj-rest-auth/
+dj-rest-auth/registration/
+profiles/
+profiles/<int:pk>/
+posts/
+posts/<int:pk>/
+comments/
+comments/<int:pk>/
+likes/
+likes/<int:pk>/
+followers/
+followers/<int:pk>/
+```
+
+
+## **Testing**
+### **Manual Testing**
+- The trekkers api was tested manually throughout development  using django rest framework. 
+- API Endppints and CRUD functionality was teestede for each feature. 
+- The API endpoints were also checked in thedeployed site to see if they were working and checked throughout the frontend develpment to ensure front and backend integration as each feature was being buot in the React app.  
+
+
+### **Integration Testing**
+The trekkers API has also gone through integrated testing via testing the feature on  the frontend site. 
+- The Testing documnetation for this can be found [here](https://github.com/HPCarey/trekkers/blob/main/TESTING.md).
+- Bugs encountered during this process were frontend bugs. For more information about theis process please refer to the [Bugs](https://github.com/HPCarey/trekkers/tree/main#bugs) section of the Frontend Repository.
+
+[Back to top](#)
+
+
+## **Bugs**
+### **Bugs encountered during development**
+* I have recorded the primary bugs and issues encountered during the development process in the issues and [Project Board](https://github.com/users/HPCarey/projects/5/views/1).
+* The solutions and sources to the bugs encountered can also be found there.
+
+Here is a [link](https://github.com/HPCarey/trekkers/issues) to the project issues and labels. 
+* A list of Frontend Bugs can be viewed via the Frontend Bug label. 
+* A list of backend bugs can be viewed via the Backend bug label.
+* A list of all bugs can be viewed via the bugs label.
+
+[Back to top](#)
 ## Technologies
 ### **Libraries and packages**
 The following libraries and packages were installed using the pip3 install command:
@@ -266,9 +312,50 @@ Initial deployment to heroku was done early with the intention of making the fin
 
 [Back to top](#contents)
 
-###Connet to a Frontend App
+### Connect a Frontend app with the Backend API
+- In order to connect not only the deployed Frontend app but also the development version of the app, we need to provide both heroku and local urls to the API on heroku.
+- This was done using the following steps: 
+   1. Navigate to the deployed Backend api on heroku and go to the "Settings" tab.
+   2. Set two new Config Vars with the following key:value: 
+      - CLIENT_ORIGIN : https://trekkers.herokuapp.com
+      - CLIENT_ORIGIN_DEV : https://3000-githubname-appname-435h43j34h543h-eu101.gitpod.io
+       - Note that the CLIENT_ORIGIN_DEV value might need to be updated in the Config Vars as this is not a permanent value and may change during development.
+      - The CLIENT-ORIGIN-DEV in this example is not an actual local url for security reasons. 
+- Next we need to tell the Frontend app where to send requests to.
+- This was done using the Axios library using the following steps: 
+   1. Install the Axios library : npm install axios.
+   2. Create an api folder inside the src folder and inside create an axiosDefaults.js file. 
+   3. Set the baseURL to the deployed api,and set the content type and Credentials.
 
-#
+
+       ![axios](/readme/axios.JPG)
+   4. Import into App.js: 
+   ```
+      import "./api/axiosDefaults";
+   ```
+
+[Back to top](#)
+
+#### **Steps to Fork the repository**
+
+1. Log in to GitHub.
+2. Go to the repository [p5-trekkers-api](https://github.com/HPCarey/pp5-trekkers-api).
+3. Click the Fork button in the top right hand corner.
+4. A copy of the repo will be available in your GitHub repositories list
+
+#### **Steps to clone the repository**
+1. Log in to GitHub.
+2. Go to the repository [p5-trekkers-ap](https://github.com/HPCarey/pp5-trekkers-api).
+3. Click on the green code button next to the green gitpod button.
+4. Select how you would like to clone, ie. with HTTPS, SSH or GitHub CLI, and copy the link provided.
+5. Open the terminal of your IDE and change the current working directory to the location you want to use for the cloned directory.
+6. Type the git clone command followed by the link you copied in step 4.
+7. Set up your virtual environement and install the packages from requirements.txt.
+    - To install packages type the following command into the terminal: pip3 install -r requirements.txt
+
+[Back to top](#contents)
+
+
 ## **Credits**
 ### Code Institute
 
