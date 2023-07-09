@@ -182,14 +182,14 @@ The trekkers API has also gone through integration testing via testing the featu
 - [Heroku](https://www.heroku.com/)
     - Used to host the deployed sitewhat
 - [ElephantSQL]() 
-    Used to host and operate the PostgresSQL database
+   - Used to host and operate the PostgresSQL database
 
 [Back to top](#contents)
 
 ### **Frameworks, tools and libraries**
 #### API Back-End
 - [Django Rest Framework](https://www.django-rest-framework.org/)
-    - tO BUILD T
+    - The frmaework used to build the api
 - [Psycopg2](https://pypi.org/project/psycopg2/)
    - PostgreSQL database adapter for python
 - [django_filters](https://django-filter.readthedocs.io/en/stable/guide/install.html) 
