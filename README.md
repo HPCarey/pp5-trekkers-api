@@ -1,21 +1,59 @@
 # Trekkers API
 #
-This is the backend api for the trekkers Frontemd React app. It contains the models and logic to allow the frontend application to perform CRUD operations.
+This is the backend api for the trekkers Frontend React app. It contains the models and logic to allow the frontend application to perform CRUD operations.
 
 #
 * [Deployed Back-End page](https://pp5-trekkers-api.herokuapp.com/)
 * [Deployed Front-End page](https://trekkers.herokuapp.com/)
 * [Frontend repository](https://github.com/HPCarey/trekkers)
+#
+## **Contents**
+- [**Planning and Project Conception**](#planning-and-project-conception)
+	- [**Project Goals**](#project-goals)
+	- [**Site Goals**](#site-goals)
+	- [**Future Goals**](#future-goals)
+	- [**Agile Planning**](#agile-planning)
+		- [**GitHub Project Board**](#github-project-board)
+		- [**Github Issues**](#github-issues)
+		- [**ERD Plan for backend models**](#erd-plan-for-backend-models)
+		- [**API Endpoints**](#api-endpoints)
+- [**Testing**](#testing)
+	- [**Manual Testing**](#manual-testing)
+	- [**Test cases**](#test-cases)
+	- [**Integration Testing**](#integration-testing)
+	- [**Code Validation**](#code-validation)
+- [**Bugs**](#bugs)
+	- [**Bugs encountered during development**](#bugs-encountered-during-development)
+- [**Technologies**](#technologies)
+	- [**Languages used**](#languages-used)
+	- [**Databases**](#databases)
+	- [**Cloud storage and deployment services**](#cloud-storage-and-deployment-services)
+	- [**Frameworks, tools and libraries**](#frameworks-tools-and-libraries)
+		- [API Back-End](#api-back-end)
+		- [REACT Front-End](#react-front-end)
+	- [**Installed Libraries and packages**](#installed-libraries-and-packages)
+- [**Deployment**](#deployment)
+	- [Steps to set up and deploy the project:](#steps-to-set-up-and-deploy-the-project)
+		- [**Gitpod**](#gitpod)
+		- [**ElephantSQL**](#elephantsql)
+		- [**Environemental variables and settings.py**](#environemental-variables-and-settingspy)
+		- [**Heroku**](#heroku)
+	- [**Connect a Frontend app with the Backend API**](#connect-a-frontend-app-with-the-backend-api)
+		- [**API Heroku config vars settings**](#api-heroku-config-vars-settings)
+		- [**Axios library**](#axios-library)
+		- [**Steps to Fork the repository**](#steps-to-fork-the-repository)
+		- [**Steps to clone the repository**](#steps-to-clone-the-repository)
+- [**Credits**](#credits)
+	- [Code Institute](#code-institute)
+	- [Resources for creating the rating field in post model:](#resources-for-creating-the-rating-field-in-post-model)
+	- [Bug fixes sources:](#bug-fixes-sources)
 
 
-## **PLanning and Project Conception**
+## **Planning and Project Conception**
 ### **Project Goals**
 
 1. To use Django Rest Framework to create RESTful APIs for a Frontend Application.
-
-2. To connect a frontend app to a backen api.
-    - To see how to connect the Frontend App and the Backend Api, please see [this](#connect-the-frontend-app-with-the-backend-api) part of the deployment section.
-    - To  review the drf Backend api endpoints and methods, please see the [backend repo](https://github.com/HPCarey/pp5-trekkers-api).
+2. To connect a frontend app to a backend api.
 
 [Back to top](#)
 
@@ -29,20 +67,21 @@ This is the backend api for the trekkers Frontemd React app. It contains the mod
 - To add the event model to the api to expand the possible features.
 
 [Back to top](#)
-
 #
-### Agile Planning
+### **Agile Planning**
 #### **GitHub Project Board**
 
 * This project was made using agile methodologies. Epics, user stories, bugs and issues are recorded on the [Project Board](https://github.com/users/HPCarey/projects/5/views/1)
 
 ![Screenshot of project board](/readme/kanban-board.png)
 
+[Back to top](#contents)
+
 #### **Github Issues**
 Here is a [link](https://github.com/HPCarey/trekkers/issues?q=is%3Aissue+is%3Aclosed)  to the project issues and labels. 
-* A list of Frontend Bugs can be viewed via the Frontend Bug label. 
-* A list of backend bugs can be viewed via the Backend bug label.
-* A list of all bugs can be viewed via the bugs label.
+* A list of Frontend Bugs can be viewed via the [Frontend Bug label](https://github.com/HPCarey/trekkers/issues?q=label%3A%22Frontend+Bugs%22+is%3Aclosed). 
+* A list of backend bugs can be viewed via the [Backend bug label](https://github.com/HPCarey/trekkers/issues?q=label%3A%22Backend+Bugs%22+is%3Aclosed).
+* A list of all bugs can be viewed via the [bugs label](https://github.com/HPCarey/trekkers/issues?q=label%3Abug+is%3Aclosed).
 
 
 #### **ERD Plan for backend models**
@@ -52,8 +91,9 @@ Here is a [link](https://github.com/HPCarey/trekkers/issues?q=is%3Aissue+is%3Acl
 
 ![Database](/readme/trekkers_erd.jpeg)
 
-#### **API Endpoints**
+[Back to top](#contents)
 
+#### **API Endpoints**
 ```
 /
 dj-rest-auth/login/
@@ -72,13 +112,13 @@ likes/<int:pk>/
 followers/
 followers/<int:pk>/
 ```
-
+[Back to top](#contents)
 
 ## **Testing**
 ### **Manual Testing**
 - The trekkers api was tested manually throughout development  using django rest framework. 
 - API Endpoints and CRUD functionality was tested for each feature. 
-- The API endpoints were also checked in the deployed site to see if they were working and checked throughout the frontend develpment to ensure front and backend integration as each feature was being built in the React app.  
+- The API endpoints were also checked in the deployed site to see if they were working and checked throughout the frontend development to ensure front and backend integration as each feature was being built in the React app.  
 
 ### **Test cases**
 Below are some test cases that were implemented throughout development to check correct functionality: 
@@ -92,6 +132,7 @@ Below are some test cases that were implemented throughout development to check 
 - PUT mehtod for profiles/id, posts/id and comments/id tested
 - DELETE method for posts/id, comments/id, likes/id, followers/id tested
 
+[Back to top](#contents)
 
 ### **Integration Testing**
 The trekkers API has also gone through integration testing via testing the features on  the frontend site. 
@@ -103,13 +144,15 @@ The trekkers API has also gone through integration testing via testing the featu
 ### **Code Validation**
 - The python code was monitored for errors and adjusted throughout development using the gitpod IDE problems tab.
 - In the final code review, I opened all python files and corrected any problems that were left.
-    - Only minor issues like blank lines at emd of file remained.
+    - Only minor issues like blank line at end of file remained.
 - The only issues I did not fix from the problems tab are the line too long warnings from the automatically generated settings.py AUTH_PASSWORD_VALIDATORS variable which contains long strings. 
-    - I left these strings intat rather than breaking them up into smaller strings for the sake of avoiding potential issues.
+    - I left these strings intact rather than breaking them up into smaller strings for the sake of avoiding potential issues.
     - This was done follwong advice from my own and other mentors on slack. 
 - Here is the final code  validation result:
 
 ![python-validation](readme/python_code_validation.JPG)
+
+[Back to top](#contents)
 
 ## **Bugs**
 ### **Bugs encountered during development**
@@ -141,8 +184,10 @@ The trekkers API has also gone through integration testing via testing the featu
 - [ElephantSQL]() 
     Used to host and operate the PostgresSQL database
 
+[Back to top](#contents)
+
 ### **Frameworks, tools and libraries**
-#### Back-End
+#### API Back-End
 - [Django Rest Framework](https://www.django-rest-framework.org/)
     - tO BUILD T
 - [Psycopg2](https://pypi.org/project/psycopg2/)
@@ -164,8 +209,9 @@ The trekkers API has also gone through integration testing via testing the featu
     - Authenticates requests through a JSON web token provided in a request header.
     - ManageS account authorisation, keep user logged-in for 24 hours.
 
+[Back to top](#contents)
    
-#### Front-End
+#### REACT Front-End
 - [React JS](https://reactjs.org/)
 - [JSON Web Tokens](https://jwt.io/)
 - [React Bootstrap](https://react-bootstrap-v4.netlify.app/)
@@ -178,6 +224,7 @@ The trekkers API has also gone through integration testing via testing the featu
 - [Pixabay](https://pixabay.com/)
 - [Google fonts](https://fonts.google.com/)
 - [Markdown TOC generator](https://magnetikonline.github.io/markdown-toc-generate/)
+
 ### **Installed Libraries and packages**
 The following libraries and packages were installed using the pip3 install command:
 ```
@@ -195,7 +242,7 @@ django-cors-headers
 ```
 [Back to top](#)
 
-## Deployment
+## **Deployment**
 ### Steps to set up and deploy the project:
 #### **Gitpod**
 This project was created using the Code Institute Gitpod Full 
@@ -245,6 +292,9 @@ os.environ['DEV'] = '1'
 os.environ['SECRET_KEY'] = 'thisisasecret'
 os.environ['DATABASE_URL'] = 'postgres://thisisasecret'
 ```
+
+[Back to top](#contents)
+
 3. In settings.py, make sure to import dj-database, regular expression and os modules and  use an if statement to get the env.py file.
 
 ```
@@ -273,6 +323,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
             'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
         }
 ```
+
+[Back to top](#contents)
+
 6. Set up Cloudinary to store the static and media files.
 7. Add `'cloudinary_storage',` to INSTALLED_APPS, in settings.py, above `'django.contrib.staticfiles',`.
 8. Then add `'cloudinary',` underneath  'django.contrib.staticfiles',.
@@ -291,6 +344,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
         DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
     ```
+[Back to top](#contents)
 
 10. Below INSTALLED_APPS, set site ID:
 ```
@@ -317,6 +371,8 @@ if 'DEV' not in os.environ:
         'rest_framework.renderers.JSONRenderer',
     ]
 ```
+[Back to top](#contents)
+
 13. Beneath that, add the following:
 ```
 REST_USE_JWT = True
@@ -335,7 +391,9 @@ JWT_AUTH_SAMESITE = 'None'
 ```
     DEBUG = 'DEV' in os.environ
 ```
-16. Updated the DATABASES variable to a conditional to either use SQLITE database for developmentand or the ElephantSQL database url from the env file otherwise:
+[Back to top](#contents)
+
+16. Update the DATABASES variable to a conditional to either use SQLITE database for development or the ElephantSQL database url from the env file otherwise:
 ```
 if 'DEV' in os.environ:
     DATABASES = {
@@ -351,7 +409,7 @@ else:
 ```
 17. Get the heroku url from the ALLOWED_HOSTS variable in env file and allow localhost for development:
 - If you have problem running the api with localhost, just replace it with your local browser url.
-    - NB: localhost is not working for me so I usedthe actual gitpod url.
+    - NB: localhost is not working for me so I used the gitpod url.
 ```
 
 ALLOWED_HOSTS = [
@@ -359,7 +417,9 @@ ALLOWED_HOSTS = [
    'localhost',
 ]
 ```
-18. Add the CORS_ALLOWED variable so that we can connect out frontend app using the CLIENT_ORIGIN and CLIENT_ORIGIN_DEV keys in heroku:
+[Back to top](#contents)
+
+18. Add the CORS_ALLOWED variable so that we can connect our frontend app using the CLIENT_ORIGIN and CLIENT_ORIGIN_DEV keys in heroku:
 ```
     if 'CLIENT_ORIGIN' in os.environ:
         CORS_ALLOWED_ORIGINS = [
@@ -406,6 +466,7 @@ ALLOWED_HOSTS = [
     ]
 
 ```
+[Back to top](#contents)
 
 21. Create a Procfile and add web:
 ```
@@ -430,7 +491,7 @@ ALLOWED_HOSTS = [
 #### **Heroku**
 Initial deployment to heroku was done early with the intention of making the final deployment process more smooth.
 1. Log in to [Heroku](https://www.heroku.com/).
-2. From the dashboard, click the button labelled New in the top right corner and from the drop-down menu select Create New App.
+2. From the dashboard, click the button labelled "New" in the top right corner and from the drop-down menu select Create New App.
 3. Enter a name for the app and select your region.
 4. Click Create App.                  
 5. Find the Settings Tab and scroll down to Config Vars.
@@ -460,12 +521,17 @@ Initial deployment to heroku was done early with the intention of making the fin
     - CLIENT_ORIGIN_DEV : https://3000-githubname-appname-435h43j34h543h-eu101.gitpod.io
     - Note that the CLIENT_ORIGIN_DEV value might need to be updated in the Config Vars as this is not a permanent value and may change during development.
     - The CLIENT-ORIGIN-DEV in this example is not an actual local url for security reasons. 
+
+
+[Back to top](#contents)
+
 #### **Axios library**
 - Next we need to tell the Frontend app where to send HTTP requests to.
 - This was done using the Axios library using the following steps: 
 1. Install the Axios library : npm install axios.
 2. Create an api folder inside the src folder and inside create an axiosDefaults.js file. 
 3. Set the baseURL to the deployed api, and set the content type and Credentials.
+
 
 
     ![axios](/readme/axios.JPG)
@@ -509,3 +575,5 @@ It contains models and logic from that project which have bee modified for the p
 ### Bug fixes sources:
 1.	Application labels aren’t unique error when deploying backend api : [Stack Overflow](https://stackoverflow.com/questions/24319558/how-to-resolve-django-core-exceptions-improperlyconfigured-application-labels)
 2. Other bug fix sources are credited in the Project Board under Issues labelled "Backend bug"
+
+[Back to top](#contents)
